@@ -24,8 +24,6 @@ use Cake\Http\MiddlewareQueue;
 use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
 
-use MaterializeTheme\Plugin as MaterializeTheme;
-
 /**
  * Application setup class.
  *
