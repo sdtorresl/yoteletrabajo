@@ -18,6 +18,8 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 
+use Cake\Event\EventInterface;
+
 /**
  * Application Controller
  *
@@ -49,5 +51,11 @@ class AppController extends Controller
          * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
          */
         //$this->loadComponent('FormProtection');
+    }
+
+    public function beforeRender(EventInterface $event) {
+        parent::beforeRender($event);
+
+        $this->viewBuilder()->setLayout('MaterializeTheme.materialize');
     }
 }

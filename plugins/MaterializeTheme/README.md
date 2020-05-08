@@ -23,3 +23,15 @@ To set the default bake template add the follow lines to `src/Application.php`:
 ```{php}
 $this->addPlugin('MaterializeTheme');
 ```
+
+To set the default layout in `AppController` add the follow method:
+
+```{php}
+use Cake\Event\EventInterface;
+[...]
+public function beforeRender(EventInterface $event) {
+    parent::beforeRender($event);
+
+    $this->viewBuilder()->setLayout('MaterializeTheme.materialize');
+}
+```

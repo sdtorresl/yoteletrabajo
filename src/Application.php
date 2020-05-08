@@ -24,6 +24,8 @@ use Cake\Http\MiddlewareQueue;
 use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
 
+use MaterializeTheme\Plugin as MaterializeTheme;
+
 /**
  * Application setup class.
  *
@@ -39,6 +41,8 @@ class Application extends BaseApplication
      */
     public function bootstrap(): void
     {
+        $this->addPlugin('MaterializeTheme');
+
         // Call parent to load bootstrap from files.
         parent::bootstrap();
 
@@ -55,7 +59,6 @@ class Application extends BaseApplication
         }
 
         // Load more plugins here
-        $this->addPlugin('MaterializeTheme');
     }
 
     /**
