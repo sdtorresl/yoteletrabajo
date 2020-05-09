@@ -26,10 +26,11 @@ $cakeDescription = 'CakePHP';
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
-    
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <?= $this->Html->css('MaterializeTheme.materialize.min.css') ?>
+    <?= $this->Html->css('MaterializeTheme.main.css') ?>
     <?= $this->Html->script('MaterializeTheme.materialize.min.js') ?>
 
     <?= $this->fetch('meta') ?>
@@ -38,6 +39,18 @@ $cakeDescription = 'CakePHP';
 </head>
 
 <body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="sass.html">Sass</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">JavaScript</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <main>
         <div class="container">
             <?= $this->fetch('content'); ?>
@@ -57,6 +70,7 @@ $cakeDescription = 'CakePHP';
 
         var collapsibleElem = document.querySelector('.collapsible');
         var collapsibleInstance = M.Collapsible.init(collapsibleElem);
+
     </script>
 
     <?= $this->Flash->render('flash') ?>
