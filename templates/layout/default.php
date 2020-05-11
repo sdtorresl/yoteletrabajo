@@ -11,49 +11,73 @@
  * @link          https://cakephp.org CakePHP(tm) Project
  * @since         0.10.0
  * @license       https://opensource.org/licenses/mit-license.php MIT License
- * @var \App\View\AppView $this
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'EMS - Exea Monitoring System';
+$menuCell = $this->cell('Menu');
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
-
-    <?= $this->Html->css('milligram.min.css') ?>
-    <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->css('/node_modules/materialize-css/dist/css/materialize.min.css') ?>
+    <?= $this->Html->script('/node_modules/materialize-css/dist/js/materialize.min.js') ?>
+    <?= $this->Html->css('main.min.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
+
 <body>
-    <nav class="top-nav">
-        <div class="top-nav-title">
-            <a href="/"><span>Cake</span>PHP</a>
-        </div>
-        <div class="top-nav-links">
-            <a target="_blank" href="https://book.cakephp.org/4/">Documentation</a>
-            <a target="_blank" href="https://api.cakephp.org/4/">API</a>
+    <nav>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="fal fa-bars"></i></a>
+
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul id="nav-mobile" class="right">
+                <li>
+                    <?= $this->Html->link(_('Logout'), [
+                        'controller' => 'Users',
+                        'action' => 'logout'
+                    ]) ?>
+                </li>
+            </ul>
         </div>
     </nav>
-    <main class="main">
+
+    <?= $menuCell ?>
+
+    <main>
         <div class="container">
-            <?= $this->Flash->render() ?>
-            <?= $this->fetch('content') ?>
+            <?= $this->fetch('content'); ?>
         </div>
     </main>
-    <footer>
-    </footer>
+
+    <script type="text/javascript">
+        M.AutoInit();
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.sidenav');
+            var options = {
+                preventScrolling: false
+            }
+            var instances = M.Sidenav.init(elems, options);
+        });
+
+        var collapsibleElem = document.querySelector('.collapsible');
+        var collapsibleInstance = M.Collapsible.init(collapsibleElem);
+    </script>
+
+    <?= $this->Flash->render('flash') ?>
 </body>
+
 </html>
