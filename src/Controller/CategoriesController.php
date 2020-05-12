@@ -19,7 +19,7 @@ class CategoriesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Categories'],
+            //'contain' => ['Categories'],
         ];
         $categories = $this->paginate($this->Categories);
 

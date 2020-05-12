@@ -3,12 +3,20 @@
 @import './fontawesome/fa-regular.scss';
 @import './fontawesome/fa-solid.scss';
 
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../font/montserrat/Montserrat-Regular.ttf');
+}
+
 $primary-green: #1c71d3;
 $primary-green-hover: #374f5a;
 $primary-dark: #333;
 $secondary-dark: #979797;
 $primary-red: #D6456A;
 
+html {
+    font-family: 'Montserrat'
+}
 
 body {
     background: #EEE;
@@ -127,6 +135,22 @@ textarea.materialize-textarea:focus:not([readonly]) {
     box-shadow: 0 1px 0 0 $primary-green;
 }
 
+input:not([type]):focus:not([readonly]) + label,
+input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="password"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="email"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="url"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="time"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="date"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="datetime"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="datetime-local"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="tel"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="number"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="search"]:not(.browser-default):focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label {
+    color: $primary-green;
+}
+
 .form {
     margin-top: 2rem;
 
@@ -174,8 +198,13 @@ textarea.materialize-textarea:focus:not([readonly]) {
         justify-content: space-around;
     }
 }
+
 .card-panel {
     border-radius: 15px;
+}
+
+.card-content {
+    width: 100%;
 }
 
 nav {

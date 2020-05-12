@@ -6,8 +6,7 @@
 ?>
 
 <section class="discounts index card">
-    <div class="card-header">
-        <div class="card-content">
+    <div class="card-content">
         <span class="card-title"><?=__('Discounts') ?></span>
 
         <table class="centered responsive-table">

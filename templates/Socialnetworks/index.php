@@ -6,8 +6,7 @@
 ?>
 
 <section class="socialnetworks index card">
-    <div class="card-header">
-        <div class="card-content">
+    <div class="card-content">
         <span class="card-title"><?=__('Socialnetworks') ?></span>
 
         <table class="centered responsive-table">
