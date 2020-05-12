@@ -35,42 +35,50 @@ class MenuCell extends Cell
     public function display()
     {
         $menuItems = [
-            "pages" => [
-                "label" => __("Inicio"),
-                "icon" => "fal fa-home",
-                "action" => "index"
-            ],
             "categories" => [
-                "label" => __("Categorías"),
-                "icon" => "fal fa-users",
+                "label" => __("Categories"),
+                "icon" => "fal fa-tags",
+                "actions" => [
+                    "index" => __("Listar"),
+                    "add" => __("Crear")
+                ]
+            ],
+            "podcasts" => [
+                "label" => __("Podcasts"),
+                "icon" => "fal fa-podcast",
                 "actions" => [
                     "index" => __("Listar"),
                     "add" => __("Crear")
                 ]
             ],
             "products" => [
-                "label" => __("Productos"),
-                "icon" => "fal fa-users",
+                "label" => __("Products"),
+                "icon" => "fal fa-shopping-bag",
                 "actions" => [
                     "index" => __("Listar"),
                     "add" => __("Crear")
                 ]
             ],
             "discounts" => [
-                "label" => __("Descuentos"),
+                "label" => __("Discounts"),
+                "icon" => "fal fa-percent",
+                "actions" => [
+                    "index" => __("Ver"),
+                    "add" => __("Crear")
+                ]
+            ],
+            "users" => [
+                "label" => __("Users"),
                 "icon" => "fal fa-users",
                 "actions" => [
                     "index" => __("Listar"),
                     "add" => __("Crear")
                 ]
             ],
-            "users" => [
-                "label" => __("Usuarios"),
-                "icon" => "fal fa-users",
-                "actions" => [
-                    "index" => __("Listar"),
-                    "add" => __("Crear")
-                ]
+            "settings" => [
+                "label" => __("Settings"),
+                "icon" => "fal fa-cog",
+                "action" => "index"
             ],
         ];
 
