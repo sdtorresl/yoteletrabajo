@@ -61,8 +61,8 @@ class PodcastsFixture extends TestFixture
                 'size' => 'Lorem ipsum dolor sit amet',
                 'format' => 'Lorem ipsum dolor sit amet',
                 'type' => 'Lorem ipsum dolor sit amet',
-                'created' => '2020-05-08 19:10:07',
-                'modified' => '2020-05-08 19:10:07',
+                'created' => '2020-05-12 02:08:03',
+                'modified' => '2020-05-12 02:08:03',
             ],
         ];
         parent::init();

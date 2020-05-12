@@ -44,24 +44,32 @@ class MenuCell extends Cell
                 "label" => __("Categorías"),
                 "icon" => "fal fa-users",
                 "actions" => [
-                    "add" => __("Crear"),
-                    "index" => __("Listar")
+                    "index" => __("Listar"),
+                    "add" => __("Crear")
                 ]
             ],
             "products" => [
                 "label" => __("Productos"),
                 "icon" => "fal fa-users",
                 "actions" => [
-                    "add" => __("Crear"),
-                    "index" => __("Listar")
+                    "index" => __("Listar"),
+                    "add" => __("Crear")
+                ]
+            ],
+            "discounts" => [
+                "label" => __("Descuentos"),
+                "icon" => "fal fa-users",
+                "actions" => [
+                    "index" => __("Listar"),
+                    "add" => __("Crear")
                 ]
             ],
             "users" => [
                 "label" => __("Usuarios"),
                 "icon" => "fal fa-users",
                 "actions" => [
-                    "add" => __("Crear"),
-                    "index" => __("Listar")
+                    "index" => __("Listar"),
+                    "add" => __("Crear")
                 ]
             ],
         ];

@@ -4,12 +4,12 @@ declare(strict_types=1);
 namespace App\Controller;
 
 /**
- * Pages Controller
+ * Discounts Controller
  *
- * @property \App\Model\Table\PagesTable $Pages
- * @method \App\Model\Entity\Page[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @property \App\Model\Table\DiscountsTable $Discounts
+ * @method \App\Model\Entity\Discount[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class PagesController extends AppController
+class DiscountsController extends AppController
 {
     /**
      * Index method
@@ -18,25 +18,25 @@ class PagesController extends AppController
      */
     public function index()
     {
-        $pages = $this->paginate($this->Pages);
+        $discounts = $this->paginate($this->Discounts);
 
-        $this->set(compact('pages'));
+        $this->set(compact('discounts'));
     }
 
     /**
      * View method
      *
-     * @param string|null $id Page id.
+     * @param string|null $id Discount id.
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
-        $page = $this->Pages->get($id, [
+        $discount = $this->Discounts->get($id, [
             'contain' => [],
         ]);
 
-        $this->set('page', $page);
+        $this->set('discount', $discount);
     }
 
     /**
@@ -46,58 +46,58 @@ class PagesController extends AppController
      */
     public function add()
     {
-        $page = $this->Pages->newEmptyEntity();
+        $discount = $this->Discounts->newEmptyEntity();
         if ($this->request->is('post')) {
-            $page = $this->Pages->patchEntity($page, $this->request->getData());
-            if ($this->Pages->save($page)) {
-                $this->Flash->success(__('The page has been saved.'));
+            $discount = $this->Discounts->patchEntity($discount, $this->request->getData());
+            if ($this->Discounts->save($discount)) {
+                $this->Flash->success(__('The discount has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The page could not be saved. Please, try again.'));
+            $this->Flash->error(__('The discount could not be saved. Please, try again.'));
         }
-        $this->set(compact('page'));
+        $this->set(compact('discount'));
     }
 
     /**
      * Edit method
      *
-     * @param string|null $id Page id.
+     * @param string|null $id Discount id.
      * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function edit($id = null)
     {
-        $page = $this->Pages->get($id, [
+        $discount = $this->Discounts->get($id, [
             'contain' => [],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $page = $this->Pages->patchEntity($page, $this->request->getData());
-            if ($this->Pages->save($page)) {
-                $this->Flash->success(__('The page has been saved.'));
+            $discount = $this->Discounts->patchEntity($discount, $this->request->getData());
+            if ($this->Discounts->save($discount)) {
+                $this->Flash->success(__('The discount has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The page could not be saved. Please, try again.'));
+            $this->Flash->error(__('The discount could not be saved. Please, try again.'));
         }
-        $this->set(compact('page'));
+        $this->set(compact('discount'));
     }
 
     /**
      * Delete method
      *
-     * @param string|null $id Page id.
+     * @param string|null $id Discount id.
      * @return \Cake\Http\Response|null|void Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $page = $this->Pages->get($id);
-        if ($this->Pages->delete($page)) {
-            $this->Flash->success(__('The page has been deleted.'));
+        $discount = $this->Discounts->get($id);
+        if ($this->Discounts->delete($discount)) {
+            $this->Flash->success(__('The discount has been deleted.'));
         } else {
-            $this->Flash->error(__('The page could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The discount could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);
