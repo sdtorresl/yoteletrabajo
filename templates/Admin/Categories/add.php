@@ -34,5 +34,11 @@ $this->loadHelper('Form', [
 <?= $this->Form->end() ?>
             </div>
         </div>
+
+        <div class="row">
+            <div class="d-flex jc-end">
+                <?= $this->Html->link(__('Add'), ['action' => 'add', ], ['class' => 'btn']) ?>
+            </div>
+        </div>
     </div>
 </section>

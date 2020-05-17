@@ -51,5 +51,11 @@
             </ul>
             <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
         </div>
+
+        <div class="row">
+            <div class="d-flex jc-end">
+                <?= $this->Html->link(__('Add socialnetwork'), ['action' => 'add'], ['class' => 'btn']) ?>
+            </div>
+        </div>
     </div>
 </section>
