@@ -39,6 +39,8 @@ class Application extends BaseApplication
      */
     public function bootstrap(): void
     {
+        $this->addPlugin('Josegonzalez/Upload');
+
         $this->addPlugin('MaterializeTheme');
 
         // Call parent to load bootstrap from files.

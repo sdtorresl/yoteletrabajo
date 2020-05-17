@@ -39,24 +39,24 @@ class MenuCell extends Cell
                 "label" => __("Categories"),
                 "icon" => "fal fa-tags",
                 "actions" => [
-                    "index" => __("Listar"),
-                    "add" => __("Crear")
+                    "index" => __("List"),
+                    "add" => __("Add")
                 ]
             ],
             "podcasts" => [
                 "label" => __("Podcasts"),
                 "icon" => "fal fa-podcast",
                 "actions" => [
-                    "index" => __("Listar"),
-                    "add" => __("Crear")
+                    "index" => __("List"),
+                    "add" => __("Add")
                 ]
             ],
             "products" => [
                 "label" => __("Products"),
                 "icon" => "fal fa-shopping-bag",
                 "actions" => [
-                    "index" => __("Listar"),
-                    "add" => __("Crear")
+                    "index" => __("List"),
+                    "add" => __("Add")
                 ]
             ],
             "discounts" => [
@@ -64,16 +64,29 @@ class MenuCell extends Cell
                 "icon" => "fal fa-percent",
                 "actions" => [
                     "index" => __("Ver"),
-                    "add" => __("Crear")
+                    "add" => __("Add")
                 ]
             ],
             "users" => [
                 "label" => __("Users"),
                 "icon" => "fal fa-users",
                 "actions" => [
-                    "index" => __("Listar"),
-                    "add" => __("Crear")
+                    "index" => __("List"),
+                    "add" => __("Add")
                 ]
+            ],
+            "images" => [
+                "label" => __("Images"),
+                "icon" => "fal fa-images",
+                "actions" => [
+                    "index" => __("List"),
+                    "add" => __("Add")
+                ]
+            ],
+            "social-networks" => [
+                "label" => __("Social Networks"),
+                "icon" => "fal fa-share-alt",
+                "action" => "index"
             ],
             "settings" => [
                 "label" => __("Settings"),
