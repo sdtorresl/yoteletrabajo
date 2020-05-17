@@ -6,14 +6,14 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Socialnetwork Entity
+ * SocialNetwork Entity
  *
  * @property int $id
  * @property string $name
  * @property string $link
  * @property string|null $icon
  */
-class Socialnetwork extends Entity
+class SocialNetwork extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().

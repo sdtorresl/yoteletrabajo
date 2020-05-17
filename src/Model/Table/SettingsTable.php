@@ -39,7 +39,7 @@ class SettingsTable extends Table
 
         $this->setTable('settings');
         $this->setDisplayField('key');
-        $this->setPrimaryKey('key');
+        $this->setPrimaryKey('id');
     }
 
     /**
@@ -51,9 +51,15 @@ class SettingsTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->scalar('key')
-            ->maxLength('key', 50)
-            ->allowEmptyString('key', null, 'create');
+            ->integer('id')
+            ->allowEmptyString('id', null, 'create');
+
+        $validator
+            ->scalar('identifier')
+            ->maxLength('identifier', 50)
+            ->requirePresence('identifier', 'create')
+            ->notEmptyString('identifier')
+            ->add('identifier', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator
             ->scalar('value')
@@ -62,5 +68,19 @@ class SettingsTable extends Table
             ->notEmptyString('value');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules): RulesChecker
+    {
+        $rules->add($rules->isUnique(['identifier']));
+
+        return $rules;
     }
 }

@@ -715,8 +715,8 @@ class Initial extends AbstractMigration
             ])
             ->create();
 
-        $this->table('settings', ['id' => false, 'primary_key' => ['key']])
-            ->addColumn('key', 'string', [
+        $this->table('settings')
+            ->addColumn('identifier', 'string', [
                 'default' => null,
                 'limit' => 50,
                 'null' => false,
@@ -726,6 +726,12 @@ class Initial extends AbstractMigration
                 'limit' => 250,
                 'null' => false,
             ])
+            ->addIndex(
+                [
+                    'identifier',
+                ],
+                ['unique' => true]
+            )
             ->create();
 
         $this->table('shopping_carts')
@@ -764,7 +770,7 @@ class Initial extends AbstractMigration
             )
             ->create();
 
-        $this->table('socialnetworks')
+        $this->table('social_networks')
             ->addColumn('name', 'string', [
                 'default' => null,
                 'limit' => 45,

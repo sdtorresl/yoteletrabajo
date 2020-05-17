@@ -9,23 +9,23 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Socialnetworks Model
+ * SocialNetworks Model
  *
- * @method \App\Model\Entity\Socialnetwork newEmptyEntity()
- * @method \App\Model\Entity\Socialnetwork newEntity(array $data, array $options = [])
- * @method \App\Model\Entity\Socialnetwork[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\Socialnetwork get($primaryKey, $options = [])
- * @method \App\Model\Entity\Socialnetwork findOrCreate($search, ?callable $callback = null, $options = [])
- * @method \App\Model\Entity\Socialnetwork patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\Socialnetwork[] patchEntities(iterable $entities, array $data, array $options = [])
- * @method \App\Model\Entity\Socialnetwork|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Socialnetwork saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Socialnetwork[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\Socialnetwork[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
- * @method \App\Model\Entity\Socialnetwork[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\Socialnetwork[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\SocialNetwork newEmptyEntity()
+ * @method \App\Model\Entity\SocialNetwork newEntity(array $data, array $options = [])
+ * @method \App\Model\Entity\SocialNetwork[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\SocialNetwork get($primaryKey, $options = [])
+ * @method \App\Model\Entity\SocialNetwork findOrCreate($search, ?callable $callback = null, $options = [])
+ * @method \App\Model\Entity\SocialNetwork patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\SocialNetwork[] patchEntities(iterable $entities, array $data, array $options = [])
+ * @method \App\Model\Entity\SocialNetwork|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\SocialNetwork saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\SocialNetwork[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\SocialNetwork[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\SocialNetwork[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\SocialNetwork[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
  */
-class SocialnetworksTable extends Table
+class SocialNetworksTable extends Table
 {
     /**
      * Initialize method
@@ -37,7 +37,7 @@ class SocialnetworksTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('socialnetworks');
+        $this->setTable('social_networks');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
     }

@@ -10,28 +10,29 @@
         <span class="card-title"><?= h($setting->key) ?></span>
         <div class="row">
             <div class="col s12">
-
                 <table>
-                                <tr>
-                        <th><?= __('Key') ?></th>
-                        <td><?= h($setting->key) ?></td>
+                                                                                <tr>
+                        <th><?= __('Identifier') ?></th>
+                        <td><?= h($setting->identifier) ?></td>
                     </tr>
-                                        <tr>
+                                                                                <tr>
                         <th><?= __('Value') ?></th>
                         <td><?= h($setting->value) ?></td>
                     </tr>
-                            </table>
-
-                </div>
-
-                <div class="row">
-                    <div class="form-submit d-flex jc-end">
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $setting->key], ['confirm' => __('Are you sure you want to delete # {0}?', $setting->key), 'class' => ['btn', 'cancel']]); ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $setting->key], ['class' => 'btn']) ?>
-                    </div>
-                </div>
+                                                                                                                                            <tr>
+                        <th><?= __('Id') ?></th>
+                        <td><?= $this->Number->format($setting->id) ?></td>
+                    </tr>
+                                                                                                </table>
+                
+                                            </div>
+        </div>
+        
+        <div class="row">
+            <div class="d-flex jc-end">
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $setting->id], ['confirm' => __('Are you sure you want to delete # {0}?', $setting->id), 'class' => ['btn', 'cancel']]); ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $setting->id], ['class' => 'btn']) ?>
             </div>
-            
         </div>
     </div>
-</dsection>
+</section>

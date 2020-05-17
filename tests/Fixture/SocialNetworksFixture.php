@@ -6,9 +6,9 @@ namespace App\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * SettingsFixture
+ * SocialNetworksFixture
  */
-class SettingsFixture extends TestFixture
+class SocialNetworksFixture extends TestFixture
 {
     /**
      * Fields
@@ -18,11 +18,12 @@ class SettingsFixture extends TestFixture
     // phpcs:disable
     public $fields = [
         'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
-        'identifier' => ['type' => 'string', 'length' => 50, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'value' => ['type' => 'string', 'length' => 250, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'name' => ['type' => 'string', 'length' => 45, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'link' => ['type' => 'string', 'length' => 150, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'icon' => ['type' => 'string', 'length' => 45, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'identifier' => ['type' => 'unique', 'columns' => ['identifier'], 'length' => []],
+            'name' => ['type' => 'unique', 'columns' => ['name'], 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -40,8 +41,9 @@ class SettingsFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'identifier' => 'Lorem ipsum dolor sit amet',
-                'value' => 'Lorem ipsum dolor sit amet',
+                'name' => 'Lorem ipsum dolor sit amet',
+                'link' => 'Lorem ipsum dolor sit amet',
+                'icon' => 'Lorem ipsum dolor sit amet',
             ],
         ];
         parent::init();

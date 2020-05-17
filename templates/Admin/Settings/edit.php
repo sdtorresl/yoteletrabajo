@@ -19,6 +19,7 @@ $this->loadHelper('Form', [
                 
 <?= $this->Form->create($setting, ['class' => 'form']) ?>
 <?php
+    echo $this->Form->control('identifier');
     echo $this->Form->control('value');
 ?>
 <div class="form-submit d-flex jc-end">

@@ -12,7 +12,8 @@
         <table class="centered responsive-table">
             <thead>
                 <tr>
-                    <th scope="col"><?= $this->Paginator->sort('key') ?></th>
+                    <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                    <th scope="col"><?= $this->Paginator->sort('identifier') ?></th>
                     <th scope="col"><?= $this->Paginator->sort('value') ?></th>
                     <th scope="col" class="actions"><?= __('Actions') ?></th>
                 </tr>
@@ -20,14 +21,15 @@
             <tbody>
                 <?php foreach ($settings as $setting): ?>
                 <tr>
-                                                <td><?= h($setting->key) ?></td>
+                                                <td><?= $this->Number->format($setting->id) ?></td>
+                                                            <td><?= h($setting->identifier) ?></td>
                                                             <td><?= h($setting->value) ?></td>
             
                     <td class="actions">
-                        <?= $this->Html->link('<i class="fal fa-eye"></i>', ['action' => 'view', $setting->key], ['escape' => false, 'title' => __('View')] ) ?>
-                        <?= $this->Html->link('<i class="fal fa-edit"></i>', ['action' => 'edit', $setting->key], ['escape' => false, 'title' => __('Edit')] ) ?>
-                        <?= $this->Form->postLink('<i class="fal fa-trash"></i>', ['action' => 'delete', $setting->key], [
-                            'confirm' => __('Are you sure you want to delete # {0}?', $setting->key),
+                        <?= $this->Html->link('<i class="fal fa-eye"></i>', ['action' => 'view', $setting->id], ['escape' => false, 'title' => __('View')] ) ?>
+                        <?= $this->Html->link('<i class="fal fa-edit"></i>', ['action' => 'edit', $setting->id], ['escape' => false, 'title' => __('Edit')] ) ?>
+                        <?= $this->Form->postLink('<i class="fal fa-trash"></i>', ['action' => 'delete', $setting->id], [
+                            'confirm' => __('Are you sure you want to delete # {0}?', $setting->id),
                             'escape' => false,
                             'class' => 'delete',
                             'title' => __('Delete')]) ?>
