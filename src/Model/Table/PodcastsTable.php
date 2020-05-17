@@ -51,6 +51,14 @@ class PodcastsTable extends Table
             'foreignKey' => 'category_id',
             'joinType' => 'INNER',
         ]);
+
+        $this->addBehavior('File', [
+            'filename' => [
+                'file' => 'filename',
+                'file_dir' => 'directory',
+                'file_type' => 'type'
+            ]
+        ]);
     }
 
     /**
@@ -81,28 +89,18 @@ class PodcastsTable extends Table
             ->allowEmptyString('keywords');
 
         $validator
-            ->scalar('filename')
-            ->maxLength('filename', 100)
             ->allowEmptyFile('filename');
 
         $validator
-            ->scalar('directory')
-            ->maxLength('directory', 100)
             ->allowEmptyString('directory');
 
         $validator
-            ->scalar('size')
-            ->maxLength('size', 45)
             ->allowEmptyString('size');
 
         $validator
-            ->scalar('format')
-            ->maxLength('format', 45)
             ->allowEmptyString('format');
 
         $validator
-            ->scalar('type')
-            ->maxLength('type', 55)
             ->allowEmptyString('type');
 
         return $validator;

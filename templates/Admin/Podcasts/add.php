@@ -16,16 +16,13 @@ $this->loadHelper('Form', [
         <div class="row">
             <div class="col s12">
                 
-<?= $this->Form->create($podcast, ['class' => 'form']) ?>
+<?= $this->Form->create($podcast, ['class' => 'form', 'type' => 'file']) ?>
 <?php
     echo $this->Form->control('title');
     echo $this->Form->control('description');
     echo $this->Form->control('keywords');
     echo $this->Form->control('category_id', ['options' => $categories]);
-    echo $this->Form->control('filename');
-    echo $this->Form->control('directory');
-    echo $this->Form->control('size');
-    echo $this->Form->control('format');
+    echo $this->Form->control('filename', ['type' => 'file', 'label' => false, 'placeholder' => __('File')]);
     echo $this->Form->control('type');
 ?>
 <div class="form-submit d-flex jc-end">
