@@ -9,12 +9,12 @@ use Cake\ORM\Entity;
  * Category Entity
  *
  * @property int $id
- * @property string|null $name
+ * @property string $name
  * @property string|null $description
  * @property string|null $keywords
  * @property int|null $parent_category_id
  * @property string|null $type
- * @property bool|null $enabled
+ * @property bool $enabled
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *

@@ -22,12 +22,8 @@ $this->loadHelper('Form', [
     echo $this->Form->control('last_name');
     echo $this->Form->control('email');
     echo $this->Form->control('password');
-    echo $this->Form->control('login_attempts');
-    echo $this->Form->control('recovery_token');
-    echo $this->Form->control('token_expiry_date', ['empty' => true]);
     echo $this->Form->control('enabled');
     echo $this->Form->control('role_id', ['options' => $roles]);
-    echo $this->Form->control('shopping_carts._ids', ['options' => $shoppingCarts]);
 ?>
 <div class="form-submit d-flex jc-end">
     <?= $this->Html->link(__('Cancel'), ['controller' => 'users', 'action' => 'index'], ['class' => ['btn', 'cancel']]) ?>

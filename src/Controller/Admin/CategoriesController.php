@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controller\Admin;
 
 use App\Controller\AppController;
+use Cake\Event\EventInterface;
 
 /**
  * Categories Controller
@@ -13,6 +14,18 @@ use App\Controller\AppController;
  */
 class CategoriesController extends AppController
 {
+    public function beforeRender(EventInterface $event) {
+        parent::beforeRender($event);
+        
+        $types = [
+            'podcast' => __('Podcast'),
+            'product' => __('Product'),
+            'service' => __('Service')
+        ];
+
+        $this->set(compact('types'));
+    }
+
     /**
      * Index method
      *
@@ -21,7 +34,7 @@ class CategoriesController extends AppController
     public function index()
     {
         $this->paginate = [
-            //'contain' => ['Categories'],
+            'contain' => ['ParentCategories'],
         ];
         $categories = $this->paginate($this->Categories);
 
@@ -38,7 +51,7 @@ class CategoriesController extends AppController
     public function view($id = null)
     {
         $category = $this->Categories->get($id, [
-            'contain' => ['Categories', 'Images', 'Podcasts', 'Products'],
+            'contain' => ['ParentCategories', 'Images', 'Podcasts', 'Products'],
         ]);
 
         $this->set('category', $category);
@@ -55,13 +68,13 @@ class CategoriesController extends AppController
         if ($this->request->is('post')) {
             $category = $this->Categories->patchEntity($category, $this->request->getData());
             if ($this->Categories->save($category)) {
-                $this->Flash->success(__('The category has been saved.'));
+                $this->Flash->success(__('The category has been saved.'), ['plugin' => 'MaterializeTheme']);
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The category could not be saved. Please, try again.'));
+            $this->Flash->error(__('The category could not be saved. Please, try again.'), ['plugin' => 'MaterializeTheme']);
         }
-        $categories = $this->Categories->Categories->find('list', ['limit' => 200]);
+        $categories = $this->Categories->ParentCategories->find('list', ['limit' => 200]);
         $images = $this->Categories->Images->find('list', ['limit' => 200]);
         $this->set(compact('category', 'categories', 'images'));
     }
@@ -87,7 +100,7 @@ class CategoriesController extends AppController
             }
             $this->Flash->error(__('The category could not be saved. Please, try again.'));
         }
-        $categories = $this->Categories->Categories->find('list', ['limit' => 200]);
+        $categories = $this->Categories->ParentCategories->find('list', ['limit' => 200]);
         $images = $this->Categories->Images->find('list', ['limit' => 200]);
         $this->set(compact('category', 'categories', 'images'));
     }

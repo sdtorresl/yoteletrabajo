@@ -50,7 +50,8 @@ class CategoriesTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Categories', [
+        $this->belongsTo('ParentCategories', [
+            'className' => 'Categories',
             'foreignKey' => 'parent_category_id',
         ]);
         $this->hasMany('Podcasts', [
@@ -81,7 +82,8 @@ class CategoriesTable extends Table
         $validator
             ->scalar('name')
             ->maxLength('name', 100)
-            ->allowEmptyString('name')
+            ->requirePresence('name', 'create')
+            ->notEmptyString('name')
             ->add('name', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator
@@ -100,7 +102,7 @@ class CategoriesTable extends Table
 
         $validator
             ->boolean('enabled')
-            ->allowEmptyString('enabled');
+            ->notEmptyString('enabled');
 
         return $validator;
     }

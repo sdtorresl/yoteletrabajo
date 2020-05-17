@@ -14,7 +14,6 @@
                 <tr>
                     <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                     <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-                    <th scope="col"><?= $this->Paginator->sort('keywords') ?></th>
                     <th scope="col"><?= $this->Paginator->sort('parent_category_id') ?></th>
                     <th scope="col"><?= $this->Paginator->sort('type') ?></th>
                     <th scope="col"><?= $this->Paginator->sort('enabled') ?></th>
@@ -26,15 +25,14 @@
             <tbody>
                 <?php foreach ($categories as $category): ?>
                 <tr>
-                                                                                <td><?= $this->Number->format($category->id) ?></td>
-                                                                                            <td><?= h($category->name) ?></td>
-                                                                                            <td><?= h($category->keywords) ?></td>
-                                                                            <td><?= $category->has('category') ? $this->Html->link($category->category->name, ['controller' => 'Categories', 'action' => 'view', $category->category->id]) : '' ?></td>
-                                                                                                            <td><?= h($category->type) ?></td>
-                                                                                            <td><?= h($category->enabled) ?></td>
-                                                                                            <td><?= h($category->created) ?></td>
-                                                                                            <td><?= h($category->modified) ?></td>
-            
+                    <td><?= $this->Number->format($category->id) ?></td>
+                    <td><?= h($category->name) ?></td>
+                    <td><?= $category->has('parent_category') ? $this->Html->link($category->parent_category->name, ['controller' => 'Categories', 'action' => 'view', $category->parent_category->id]) : '' ?></td>
+                    <td><?= h($category->type) ?></td>
+                    <td><?= $category->enabled ? __('Yes') : __('No') ?></td>
+                    <td><?= h($category->created) ?></td>
+                    <td><?= h($category->modified) ?></td>
+
                     <td class="actions">
                         <?= $this->Html->link('<i class="fal fa-eye"></i>', ['action' => 'view', $category->id], ['escape' => false, 'title' => __('View')] ) ?>
                         <?= $this->Html->link('<i class="fal fa-edit"></i>', ['action' => 'edit', $category->id], ['escape' => false, 'title' => __('Edit')] ) ?>
@@ -48,7 +46,7 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-        
+
         <div class="paginator center-align">
             <ul class="pagination">
                 <?= $this->Paginator->first('<<') ?>
@@ -57,7 +55,8 @@
                 <?= $this->Paginator->next('>') ?>
                 <?= $this->Paginator->last('>>') ?>
             </ul>
-            <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+            <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?>
+            </p>
         </div>
 
         <div class="row">

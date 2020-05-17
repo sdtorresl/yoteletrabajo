@@ -17,7 +17,6 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Cake\Controller\Controller;
-
 use Cake\Event\EventInterface;
 
 /**
@@ -56,7 +55,7 @@ class AppController extends Controller
     public function beforeRender(EventInterface $event) {
         parent::beforeRender($event);
 
-        // $this->viewBuilder()->setLayout('MaterializeTheme.materialize');
+        //$this->viewBuilder()->setLayout('MaterializeTheme.materialize');
         $this->viewBuilder()->setLayout('admin');
     }
 }

@@ -46,7 +46,7 @@ class Initial extends AbstractMigration
             ->addColumn('name', 'string', [
                 'default' => null,
                 'limit' => 100,
-                'null' => true,
+                'null' => false,
             ])
             ->addColumn('description', 'text', [
                 'default' => null,
@@ -69,9 +69,9 @@ class Initial extends AbstractMigration
                 'null' => true,
             ])
             ->addColumn('enabled', 'boolean', [
-                'default' => null,
+                'default' => true,
                 'limit' => null,
-                'null' => true,
+                'null' => false,
             ])
             ->addColumn('created', 'datetime', [
                 'default' => null,
@@ -1345,7 +1345,7 @@ class Initial extends AbstractMigration
         $this->table('settings')->drop()->save();
         $this->table('shopping_carts')->drop()->save();
         $this->table('shopping_carts_products')->drop()->save();
-        $this->table('socialnetworks')->drop()->save();
+        $this->table('social_networks')->drop()->save();
         $this->table('taxes')->drop()->save();
         $this->table('taxes_items')->drop()->save();
         $this->table('users')->drop()->save();
