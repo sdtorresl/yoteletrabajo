@@ -26,14 +26,14 @@
             <tbody>
                 <?php foreach ($categories as $category): ?>
                 <tr>
-                                                                                <td><?= $this->Number->format($category->id) ?></td>
-                                                                                            <td><?= h($category->name) ?></td>
-                                                                                            <td><?= h($category->keywords) ?></td>
-                                                                            <td><?= $category->has('category') ? $this->Html->link($category->category->name, ['controller' => 'Categories', 'action' => 'view', $category->category->id]) : '' ?></td>
-                                                                                                            <td><?= h($category->type) ?></td>
-                                                                                            <td><?= h($category->enabled) ?></td>
-                                                                                            <td><?= h($category->created) ?></td>
-                                                                                            <td><?= h($category->modified) ?></td>
+                    <td><?= $this->Number->format($category->id) ?></td>
+                    <td><?= h($category->name) ?></td>
+                    <td><?= h($category->keywords) ?></td>
+                    <td><?= $category->has('category') ? $this->Html->link($category->category->name, ['controller' => 'Categories', 'action' => 'view', $category->category->id]) : '' ?></td>
+                    <td><?= h($category->type) ?></td>
+                    <td><?= h($category->enabled) ?></td>
+                    <td><?= h($category->created) ?></td>
+                    <td><?= h($category->modified) ?></td>
             
                     <td class="actions">
                         <?= $this->Html->link('<i class="fal fa-eye"></i>', ['action' => 'view', $category->id], ['escape' => false, 'title' => __('View')] ) ?>

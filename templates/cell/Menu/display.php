@@ -12,10 +12,10 @@ $name = $first_name . ' ' . $last_name;
     <li>
         <div class="customer-info">
             <figure class="customer-logo">
-                <?= $this->Html->image('customer-logo.png') ?>
+                <?= $this->Html->image('yoteletrabajo.svg') ?>
             </figure>
             <div class="customer-name">
-                El Corral
+                Admin
             </div>
         </div>
     </li>

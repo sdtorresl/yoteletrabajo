@@ -8,7 +8,7 @@
     src: url('../font/montserrat/Montserrat-Regular.ttf');
 }
 
-$primary-green: #1c71d3;
+$primary-green: #14a6c7;
 $primary-green-hover: #374f5a;
 $primary-dark: #333;
 $secondary-dark: #979797;
@@ -225,7 +225,7 @@ nav {
 }
 
 #slide-out {
-    background: linear-gradient(45deg,#6200ea,#1976d2) !important;
+    background: linear-gradient(45deg,#6200ea,$primary-green) !important;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;

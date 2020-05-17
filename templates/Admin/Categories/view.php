@@ -22,6 +22,7 @@
                     </tr>
                                                     <tr>
                         <th><?= __('Category') ?></th>
+                        <td><?= $this->Html->link($categories[$category->parent_category_id]['name'], ['controller' => 'Categories', 'action' => 'view', $category->parent_category_id]) ?></td>
                         <td><?= $category->has('category') ? $this->Html->link($category->category->name, ['controller' => 'Categories', 'action' => 'view', $category->category->id]) : '' ?></td>
                     </tr>
                                         <tr>
