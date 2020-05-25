@@ -59,11 +59,27 @@ class AppController extends Controller
         $request = $controller->getRequest();
         $params = $request->getAttribute("params");
         
+        
+
         // Use admin layout on admin prefix
         if ( array_key_exists("prefix", $params) ) {
             if($params['prefix'] == 'Admin') {
                 $this->viewBuilder()->setLayout('admin');
             }
         }
+
+        if ($controller->name == 'Pages' && array_key_exists("pass", $params)) {
+            $this->set(compact('params'));
+            if($params['pass'][0] == 'home') {
+                $this->viewBuilder()->setLayout('default');
+            }
+            else {
+                $this->viewBuilder()->setLayout('ajax');
+            }
+        }
+        else {
+            $this->viewBuilder()->setLayout('ajax');
+        }
+
     }
 }

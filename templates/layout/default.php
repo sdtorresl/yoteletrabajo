@@ -34,6 +34,8 @@ $menuCell = $this->cell('Menu');
     <?= $this->Html->css('main.min.css') ?>
     
     <?= $this->Html->script('/node_modules/materialize-css/dist/js/materialize.min.js') ?>
+    <?= $this->Html->script('https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js') ?>
+    <?= $this->Html->script('https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -49,6 +51,12 @@ $menuCell = $this->cell('Menu');
             </a>
 
             <ul id="nav-mobile" class="right">
+                <li>
+                    <a class="black" href="#!contacto">Contacto</a>
+                </li>
+                <li>
+                    <a class="black" href="#!acerca">Acerca de</a>
+                </li>
                 <li>
                     <a href="https://facebook.com/yoteletrabajoco" target="_blank">
                         <?= $this->Html->image('icons/facebook.png', ['class' => 'social-icon']); ?>
@@ -73,8 +81,8 @@ $menuCell = $this->cell('Menu');
         </div>
     </nav>
 
-    <main>
-        <?= $this->fetch('content'); ?>
+    <main ng-app="yoteletrabajo">
+        <div ng-view></div>
     </main>
 
     <footer class="page-footer">
@@ -119,6 +127,23 @@ $menuCell = $this->cell('Menu');
 
         var collapsibleElem = document.querySelector('.collapsible');
         var collapsibleInstance = M.Collapsible.init(collapsibleElem);
+    </script>
+
+    <script type="text/javascript">
+        var app = angular.module("yoteletrabajo", ["ngRoute"]);
+
+        app.config(function($routeProvider) {
+            $routeProvider
+                .when("/home", {
+                    templateUrl : "pages/home"
+                })
+                .when("/acerca", {
+                    templateUrl : "pages/about"
+                })
+                .when("/contacto", {
+                    templateUrl : "contacts"
+                });
+        });
     </script>
 
     <?= $this->Flash->render() ?>
