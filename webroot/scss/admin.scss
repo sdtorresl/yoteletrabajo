@@ -323,6 +323,21 @@ nav {
     }
 }
 
+.users {
+    
+    &.login {
+        .card-panel {
+            min-width: 400px;
+        }
+
+        #login-btn {
+            input {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
 .checks {
     .card-image {
         img {
