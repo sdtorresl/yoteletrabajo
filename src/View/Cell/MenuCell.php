@@ -75,6 +75,14 @@ class MenuCell extends Cell
                     "add" => __("Add")
                 ]
             ],
+            "roles" => [
+                "label" => __("Roles"),
+                "icon" => "fal fa-users-cog",
+                "actions" => [
+                    "index" => __("List"),
+                    "add" => __("Add")
+                ]
+            ],
             "images" => [
                 "label" => __("Images"),
                 "icon" => "fal fa-images",
