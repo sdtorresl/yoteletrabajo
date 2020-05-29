@@ -14,7 +14,7 @@
  */
 
 $cakeDescription = 'Yo teletrabajo';
-$menuCell = $this->cell('Menu');
+$menu = $this->cell('MainMenu');
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,59 +43,11 @@ $menuCell = $this->cell('Menu');
 </head>
 
 <body>
-    <div class="navbar-fixed">
-    
-        <nav>
-            <ul id="dropdown1" class="dropdown-content">
-                <li><a href="#!">one</a></li>
-                <li><a href="#!">two</a></li>
-                <li><a href="#!">three</a></li>
-            </ul>
-
-            <div class="nav-wrapper grey lighten-5">
-                <a href="#" class="brand-logo hide-on-med-and-down">
-                    <?= $this->Html->image('logo.svg'); ?>
-                </a>
-                <ul>
-                <li>
-                    <a href="https://facebook.com/yoteletrabajoco" target="_blank">
-                            <?= $this->Html->image('icons/facebook.png', ['class' => 'social-icon']); ?>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/yoteletrabajoco" target="_blank">
-                            <?= $this->Html->image('icons/twitter.png', ['class' => 'social-icon']); ?>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://linkedin.com/in/yoteletrabajo.co" target="_blank">
-                            <?= $this->Html->image('icons/linkedin.png', ['class' => 'social-icon']); ?>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://instagram.com/yoteletrabajo.co" target="_blank">
-                            <?= $this->Html->image('icons/instagram.png', ['class' => 'social-icon']); ?>
-                        </a>
-                    </li>
-                </ul>
-
-                <ul id="nav-mobile" class="right">
-                    <li>
-                        <a href="#!contacto">Contacto</a>
-                    </li>
-                    <li>
-                        <a href="#!acerca">Acerca de</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+    <?= $menu ?>
 
     <main ng-app="yoteletrabajo">
         <div ng-view></div>
+        <!-- <?= $this->fetch('content') ?> -->
     </main>
 
     <footer class="page-footer">
@@ -151,6 +103,15 @@ $menuCell = $this->cell('Menu');
                 .when("/home", {
                     templateUrl: "pages/home"
                 })
+                .when("/podcasts/index/:id", {
+                    templateUrl: function(params){ return 'podcasts/index/' + params.id; }
+                })
+                .when("/services/index/:id", {
+                    templateUrl: "services/index/:id"
+                })
+                .when("/products/index/:id", {
+                    templateUrl: "products/index/:id"
+                })
                 .when("/acerca", {
                     templateUrl: "pages/about"
                 })
@@ -160,6 +121,8 @@ $menuCell = $this->cell('Menu');
         });
 
     </script>
+
+    <?= $this->Html->script('podcasts.js') ?>
 
     <?= $this->Flash->render() ?>
 </body>

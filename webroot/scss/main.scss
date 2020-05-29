@@ -199,3 +199,19 @@ p {
         }
     }
 }
+
+#podcasts-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .podcast-item {
+        flex: 1 1 calc(100%/3);
+        max-width: calc(100%/3);
+
+        .card {
+            height: 100%;
+            margin-bottom: 1rem;
+        }
+    }
+}
