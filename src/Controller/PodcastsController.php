@@ -18,7 +18,12 @@ class PodcastsController extends AppController
      */
     public function index($category_id = null)
     {
-        $query = $this->Podcasts->findByCategoryId($category_id);
+        if ($category_id != null) {
+            $query = $this->Podcasts->findByCategoryId($category_id);
+        }
+        else {
+            $query = $this->Podcasts->find();
+        }
 
         $podcasts = $this->paginate($query);
         $this->set(compact('podcasts', 'category_id'));

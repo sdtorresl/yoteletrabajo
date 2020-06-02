@@ -103,14 +103,17 @@ $menu = $this->cell('MainMenu');
                 .when("/home", {
                     templateUrl: "pages/home"
                 })
+                .when("/podcasts", {
+                    templateUrl: "/podcasts"
+                })
                 .when("/podcasts/index/:id", {
                     templateUrl: function(params){ return 'podcasts/index/' + params.id; }
                 })
-                .when("/services/index/:id", {
-                    templateUrl: "services/index/:id"
+                .when("/servicios", {
+                    templateUrl: "services"
                 })
-                .when("/products/index/:id", {
-                    templateUrl: "products/index/:id"
+                .when("/productos", {
+                    templateUrl: "products"
                 })
                 .when("/acerca", {
                     templateUrl: "pages/about"
