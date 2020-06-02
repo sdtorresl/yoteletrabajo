@@ -23,6 +23,10 @@ class ServicesControllerTest extends TestCase
      */
     protected $fixtures = [
         'app.Services',
+        'app.Categories',
+        'app.Discounts',
+        'app.Images',
+        'app.ServicesImages',
     ];
 
     /**

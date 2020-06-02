@@ -1,12 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\Admin;
+
+use App\Controller\AppController;
 
 /**
  * Services Controller
  *
- * @property \App\Model\Table\ServicesTable $Services
  * @method \App\Model\Entity\Service[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class ServicesController extends AppController
@@ -18,9 +19,6 @@ class ServicesController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Categories', 'Discounts'],
-        ];
         $services = $this->paginate($this->Services);
 
         $this->set(compact('services'));
@@ -36,7 +34,7 @@ class ServicesController extends AppController
     public function view($id = null)
     {
         $service = $this->Services->get($id, [
-            'contain' => ['Categories', 'Discounts', 'Images'],
+            'contain' => [],
         ]);
 
         $this->set(compact('service'));
@@ -59,10 +57,7 @@ class ServicesController extends AppController
             }
             $this->Flash->error(__('The service could not be saved. Please, try again.'));
         }
-        $categories = $this->Services->Categories->find('list', ['limit' => 200]);
-        $discounts = $this->Services->Discounts->find('list', ['limit' => 200]);
-        $images = $this->Services->Images->find('list', ['limit' => 200]);
-        $this->set(compact('service', 'categories', 'discounts', 'images'));
+        $this->set(compact('service'));
     }
 
     /**
@@ -75,7 +70,7 @@ class ServicesController extends AppController
     public function edit($id = null)
     {
         $service = $this->Services->get($id, [
-            'contain' => ['Images'],
+            'contain' => [],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $service = $this->Services->patchEntity($service, $this->request->getData());
@@ -86,10 +81,7 @@ class ServicesController extends AppController
             }
             $this->Flash->error(__('The service could not be saved. Please, try again.'));
         }
-        $categories = $this->Services->Categories->find('list', ['limit' => 200]);
-        $discounts = $this->Services->Discounts->find('list', ['limit' => 200]);
-        $images = $this->Services->Images->find('list', ['limit' => 200]);
-        $this->set(compact('service', 'categories', 'discounts', 'images'));
+        $this->set(compact('service'));
     }
 
     /**
