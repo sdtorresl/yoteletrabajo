@@ -10,6 +10,7 @@ $this->loadHelper('Form', [
 
 ?>
 
+<?= $this->Html->script('datepicker.js') ?>
 <section class="products index card">    
     <div class="card-content">
         <span class="card-title"><?=__('Add Products') ?></span>
@@ -26,7 +27,7 @@ $this->loadHelper('Form', [
     echo $this->Form->control('category_id', ['options' => $categories]);
     echo $this->Form->control('keywords');
     echo $this->Form->control('attributes');
-    echo $this->Form->control('expiry_date', ['empty' => true]);
+    echo $this->Form->control('expiry_date', ['empty' => true, "class" => "datepicker", "type" => "text"]);
     echo $this->Form->control('discounts_id', ['options' => $discounts]);
     echo $this->Form->control('images._ids', ['options' => $images]);
     echo $this->Form->control('shopping_carts._ids', ['options' => $shoppingCarts]);

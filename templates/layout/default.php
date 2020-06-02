@@ -39,7 +39,6 @@ $menu = $this->cell('MainMenu');
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
 </head>
 
 <body>
@@ -125,6 +124,7 @@ $menu = $this->cell('MainMenu');
 
     </script>
 
+    <?= $this->fetch('script') ?>
     <?= $this->Html->script('podcasts.js') ?>
 
     <?= $this->Flash->render() ?>
