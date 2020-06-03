@@ -62,8 +62,7 @@ class ProductsController extends AppController
         $categories = $this->Products->Categories->find('list', ['limit' => 200]);
         $discounts = $this->Products->Discounts->find('list', ['limit' => 200]);
         $images = $this->Products->Images->find('list', ['limit' => 200]);
-        $shoppingCarts = $this->Products->ShoppingCarts->find('list', ['limit' => 200]);
-        $this->set(compact('product', 'categories', 'discounts', 'images', 'shoppingCarts'));
+        $this->set(compact('product', 'categories', 'discounts', 'images'));
     }
 
     /**
@@ -90,8 +89,7 @@ class ProductsController extends AppController
         $categories = $this->Products->Categories->find('list', ['limit' => 200]);
         $discounts = $this->Products->Discounts->find('list', ['limit' => 200]);
         $images = $this->Products->Images->find('list', ['limit' => 200]);
-        $shoppingCarts = $this->Products->ShoppingCarts->find('list', ['limit' => 200]);
-        $this->set(compact('product', 'categories', 'discounts', 'images', 'shoppingCarts'));
+        $this->set(compact('product', 'categories', 'discounts', 'images'));
     }
 
     /**

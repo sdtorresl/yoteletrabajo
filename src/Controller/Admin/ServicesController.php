@@ -57,7 +57,10 @@ class ServicesController extends AppController
             }
             $this->Flash->error(__('The service could not be saved. Please, try again.'));
         }
-        $this->set(compact('service'));
+        $categories = $this->Services->Categories->find('list', ['limit' => 200]);
+        $discounts = $this->Services->Discounts->find('list', ['limit' => 200]);
+        $images = $this->Services->Images->find('list', ['limit' => 200]);
+        $this->set(compact('service', 'categories', 'discounts', 'images'));
     }
 
     /**
@@ -81,7 +84,10 @@ class ServicesController extends AppController
             }
             $this->Flash->error(__('The service could not be saved. Please, try again.'));
         }
-        $this->set(compact('service'));
+        $categories = $this->Services->Categories->find('list', ['limit' => 200]);
+        $discounts = $this->Services->Discounts->find('list', ['limit' => 200]);
+        $images = $this->Services->Images->find('list', ['limit' => 200]);
+        $this->set(compact('service', 'categories', 'discounts', 'images'));
     }
 
     /**

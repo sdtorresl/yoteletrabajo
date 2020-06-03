@@ -12,7 +12,6 @@
         <table class="centered responsive-table">
             <thead>
                 <tr>
-                    <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                     <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                     <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                     <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
@@ -24,13 +23,12 @@
             <tbody>
                 <?php foreach ($discounts as $discount): ?>
                 <tr>
-                                                <td><?= $this->Number->format($discount->id) ?></td>
-                                                            <td><?= h($discount->name) ?></td>
-                                                            <td><?= h($discount->created) ?></td>
-                                                            <td><?= h($discount->modified) ?></td>
-                                                            <td><?= h($discount->expiry_date) ?></td>
-                                                            <td><?= $this->Number->format($discount->value) ?></td>
-            
+                    <td><?= h($discount->name) ?></td>
+                    <td><?= h($discount->created) ?></td>
+                    <td><?= h($discount->modified) ?></td>
+                    <td><?= h($discount->expiry_date) ?></td>
+                    <td><?= $this->Number->format($discount->value) ?></td>
+
                     <td class="actions">
                         <?= $this->Html->link('<i class="fal fa-eye"></i>', ['action' => 'view', $discount->id], ['escape' => false, 'title' => __('View')] ) ?>
                         <?= $this->Html->link('<i class="fal fa-edit"></i>', ['action' => 'edit', $discount->id], ['escape' => false, 'title' => __('Edit')] ) ?>
@@ -44,7 +42,7 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-        
+
         <div class="paginator center-align">
             <ul class="pagination">
                 <?= $this->Paginator->first('<<') ?>
@@ -53,7 +51,8 @@
                 <?= $this->Paginator->next('>') ?>
                 <?= $this->Paginator->last('>>') ?>
             </ul>
-            <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+            <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?>
+            </p>
         </div>
 
         <div class="row">

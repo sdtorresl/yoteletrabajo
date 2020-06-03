@@ -20,19 +20,19 @@ $this->loadHelper('Form', [
 
                     <?= $this->Form->create($product, ['class' => 'form']) ?>
                     <?php
-    echo $this->Form->control('name');
-    echo $this->Form->control('description');
-    echo $this->Form->control('value');
-    echo $this->Form->control('available');
-    echo $this->Form->control('sku');
-    echo $this->Form->control('category_id', ['options' => $categories]);
-    echo $this->Form->control('keywords');
-    echo $this->Form->control('attributes');
-    echo $this->Form->control('expiry_date', ['empty' => true, "class" => "datepicker", "type" => "text"]);
-    echo $this->Form->control('discounts_id', ['options' => $discounts]);
-    echo $this->Form->control('images._ids', ['options' => $images]);
-    echo $this->Form->control('shopping_carts._ids', ['options' => $shoppingCarts]);
-?>
+                        echo $this->Form->control('name');
+                        echo $this->Form->control('description');
+                        echo $this->Form->control('value');
+                        echo $this->Form->control('available');
+                        echo $this->Form->control('sku');
+                        echo $this->Form->control('category_id', ['options' => $categories]);
+                        echo $this->Form->control('keywords');
+                        echo $this->Form->control('attributes');
+                        echo $this->Form->control('expiry_date', ['empty' => true, "class" => "datepicker", "type" => "text"]);
+                        echo $this->Form->control('discounts_id', ['empty' => true, 'options' => $discounts]);
+                        echo $this->Form->control('images._ids', ['options' => $images]);
+                        echo $this->Form->control('shopping_carts._ids', ['options' => $shoppingCarts]);
+                    ?>
                     <div class="form-submit d-flex jc-end">
                         <?= $this->Html->link(__('Cancel'), ['controller' => 'products', 'action' => 'index'], ['class' => ['btn', 'cancel']]) ?>
                         <?= $this->Form->button(__('Submit'), ['class' => 'btn']) ?>

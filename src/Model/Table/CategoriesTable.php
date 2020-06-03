@@ -60,6 +60,9 @@ class CategoriesTable extends Table
         $this->hasMany('Products', [
             'foreignKey' => 'category_id',
         ]);
+        $this->hasMany('Services', [
+            'foreignKey' => 'category_id',
+        ]);
         $this->belongsToMany('Images', [
             'foreignKey' => 'category_id',
             'targetForeignKey' => 'image_id',
