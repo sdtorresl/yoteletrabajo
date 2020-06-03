@@ -14,7 +14,7 @@
  */
 
 $cakeDescription = 'Yo teletrabajo';
-$menuCell = $this->cell('Menu');
+$menu = $this->cell('MainMenu');
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,49 +32,21 @@ $menuCell = $this->cell('Menu');
     <?= $this->Html->css('/node_modules/materialize-css/dist/css/materialize.min.css') ?>
     <?= $this->Html->css('/node_modules/animate.css/animate.min.css') ?>
     <?= $this->Html->css('main.min.css') ?>
-    
+
     <?= $this->Html->script('/node_modules/materialize-css/dist/js/materialize.min.js') ?>
+    <?= $this->Html->script('https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js') ?>
+    <?= $this->Html->script('https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
 </head>
 
 <body>
+    <?= $menu ?>
 
-    <nav>
-        <div class="nav-wrapper grey lighten-5">
-            <a href="#" class="brand-logo hide-on-med-and-down">
-                <?= $this->Html->image('logo.svg'); ?>
-            </a>
-
-            <ul id="nav-mobile" class="right">
-                <li>
-                    <a href="https://facebook.com/yoteletrabajoco" target="_blank">
-                        <?= $this->Html->image('icons/facebook.png', ['class' => 'social-icon']); ?>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://twitter.com/yoteletrabajoco" target="_blank">
-                        <?= $this->Html->image('icons/twitter.png', ['class' => 'social-icon']); ?>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://linkedin.com/in/yoteletrabajo.co" target="_blank">
-                        <?= $this->Html->image('icons/linkedin.png', ['class' => 'social-icon']); ?>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://instagram.com/yoteletrabajo.co" target="_blank">
-                        <?= $this->Html->image('icons/instagram.png', ['class' => 'social-icon']); ?>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <main>
-        <?= $this->fetch('content'); ?>
+    <main ng-app="yoteletrabajo">
+        <div ng-view></div>
+        <!-- <?= $this->fetch('content') ?> -->
     </main>
 
     <footer class="page-footer">
@@ -119,7 +91,41 @@ $menuCell = $this->cell('Menu');
 
         var collapsibleElem = document.querySelector('.collapsible');
         var collapsibleInstance = M.Collapsible.init(collapsibleElem);
+
     </script>
+
+    <script type="text/javascript">
+        var app = angular.module("yoteletrabajo", ["ngRoute"]);
+
+        app.config(function ($routeProvider) {
+            $routeProvider
+                .when("/home", {
+                    templateUrl: "pages/home"
+                })
+                .when("/podcasts", {
+                    templateUrl: "/podcasts"
+                })
+                .when("/podcasts/index/:id", {
+                    templateUrl: function(params){ return 'podcasts/index/' + params.id; }
+                })
+                .when("/servicios", {
+                    templateUrl: "services"
+                })
+                .when("/productos", {
+                    templateUrl: "products"
+                })
+                .when("/acerca", {
+                    templateUrl: "pages/about"
+                })
+                .when("/contacto", {
+                    templateUrl: "contacts"
+                });
+        });
+
+    </script>
+
+    <?= $this->fetch('script') ?>
+    <?= $this->Html->script('podcasts.js') ?>
 
     <?= $this->Flash->render() ?>
 </body>

@@ -46,6 +46,7 @@ nav {
             align-items: center;
             height: 65px;
             padding: 0 1rem;
+            color: $secondary-color;
 
             .social-icon {
                 height: 30px;
@@ -196,5 +197,83 @@ p {
                 }
             }
         }
+    }
+}
+
+#podcasts-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .podcast-item {
+        flex: 1 1 calc(100%/3);
+        max-width: calc(100%/3);
+
+        .card {
+            height: 100%;
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+.header {
+    position: relative;
+    padding: 3em 0 0.5em 0;
+    z-index: 0;
+    overflow: hidden;
+
+    &.blue {
+        background-color: #4762E6!important;
+
+        &:before, &:after {
+            background-color: #4BD6F2;
+            opacity: 0.2;
+        }
+    }
+    
+    &:before {
+        content: '';
+        position: absolute;
+        height: 400px;
+        width: 400px;
+        border-radius: 200px;
+        top: -200px;
+        right: -50px;
+        z-index: 0;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        height: 400px;
+        width: 400px;
+        border-radius: 200px;
+        bottom: -200px;
+        left: -50px;
+        z-index: 0;
+    }
+
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .title {
+        font-size: 1em;
+        text-transform: uppercase;
+        margin: 0rem 0 1em 0;
+    }
+
+    p {
+        margin: 0 0 0.25em 0;
+    }
+
+    .highlight {
+        font-size: 3em;
+        line-height: 3.2rem;
+    }
+
+    .description {
+        font-size: 1.25em;
     }
 }

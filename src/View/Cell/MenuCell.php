@@ -59,17 +59,33 @@ class MenuCell extends Cell
                     "add" => __("Add")
                 ]
             ],
+            "services" => [
+                "label" => __("Services"),
+                "icon" => "fal fa-shopping-basket",
+                "actions" => [
+                    "index" => __("List"),
+                    "add" => __("Add")
+                ]
+            ],
             "discounts" => [
                 "label" => __("Discounts"),
                 "icon" => "fal fa-percent",
                 "actions" => [
-                    "index" => __("Ver"),
+                    "index" => __("List"),
                     "add" => __("Add")
                 ]
             ],
             "users" => [
                 "label" => __("Users"),
                 "icon" => "fal fa-users",
+                "actions" => [
+                    "index" => __("List"),
+                    "add" => __("Add")
+                ]
+            ],
+            "roles" => [
+                "label" => __("Roles"),
+                "icon" => "fal fa-users-cog",
                 "actions" => [
                     "index" => __("List"),
                     "add" => __("Add")

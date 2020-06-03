@@ -75,8 +75,8 @@ class DiscountsTable extends Table
             ->allowEmptyDateTime('expiry_date');
 
         $validator
-            ->decimal('value')
-            ->allowEmptyString('value');
+            ->integer('value')
+            ->requirePresence('value', 'create');
 
         return $validator;
     }

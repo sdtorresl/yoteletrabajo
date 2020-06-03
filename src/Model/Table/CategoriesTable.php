@@ -60,6 +60,9 @@ class CategoriesTable extends Table
         $this->hasMany('Products', [
             'foreignKey' => 'category_id',
         ]);
+        $this->hasMany('Services', [
+            'foreignKey' => 'category_id',
+        ]);
         $this->belongsToMany('Images', [
             'foreignKey' => 'category_id',
             'targetForeignKey' => 'image_id',
@@ -98,7 +101,7 @@ class CategoriesTable extends Table
         $validator
             ->scalar('type')
             ->maxLength('type', 100)
-            ->allowEmptyString('type');
+            ->requirePresence('type');
 
         $validator
             ->boolean('enabled')
@@ -117,7 +120,7 @@ class CategoriesTable extends Table
     public function buildRules(RulesChecker $rules): RulesChecker
     {
         $rules->add($rules->isUnique(['name']));
-        $rules->add($rules->existsIn(['parent_category_id'], 'Categories'));
+        $rules->add($rules->existsIn(['parent_category_id'], 'ParentCategories'));
 
         return $rules;
     }
